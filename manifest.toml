@@ -1,0 +1,57 @@
+packaging_format = 2
+
+id = "excalidraw-room"
+name = "Excalidraw room"
+description.en = "Collaboration server for Excalidraw"
+description.fr = "Serveur de collaboration pour Excalidraw"
+
+version = "1.0.0~ynh1"
+
+maintainers = []
+
+[upstream]
+license = "MIT"
+website = "https://excalidraw.com"
+demo = "https://excalidraw.com"
+code = "https://github.com/excalidraw/excalidraw-room"
+
+[integration]
+yunohost = ">= 11.1.15"
+architectures = "all"
+multi_instance = true
+ldap = false
+sso = false
+disk = "50M"
+ram.build = "200M"
+ram.runtime = "50M"
+
+[install]
+    [install.domain]
+    type = "domain"
+    full_domain = true
+
+    [install.init_main_permission]
+    type = "group"
+    default = "visitors"
+
+[resources]
+
+    [resources.sources]
+
+        [resources.sources.main]
+        url = "https://github.com/excalidraw/excalidraw-room/archive/refs/heads/master.zip"
+        sha256 = "44123b92c540d9ba8b11535e79aa8136fe5c529068ae1cf06c7435a4c61a9106"
+
+    [resources.system_user]
+
+    [resources.install_dir]
+
+    [resources.permissions]
+    main.url = "/"
+
+    [resources.apt]
+    packages = "apt-transport-https"
+    
+    extras.yarn.repo = "deb https://dl.yarnpkg.com/debian/ stable main"
+    extras.yarn.key = "https://dl.yarnpkg.com/debian/pubkey.gpg"
+    extras.yarn.packages = "yarn"
