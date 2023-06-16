@@ -7,7 +7,6 @@ After=network.target
 [Service]
 Type=simple
 User=__APP__
-Environment=NODE_ENV=development
 Environment=PORT=__PORT__
 WorkingDirectory=__INSTALL_DIR__/
 Environment="__YNH_NODE_LOAD_PATH__"
